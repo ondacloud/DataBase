@@ -48,7 +48,7 @@ def add_user():
         age = data.get("age")
         country = data.get("country")
 
-        message = f"INSERT INTO {MYSQL_DBNAME}.users (name, age, country) VALUES (s, %s, %s)"
+        message = f"INSERT INTO {MYSQL_DBNAME}.users (name, age, country) VALUES (%s, %s, %s)"
         setting_db(message, params=(name, age, country))
         
         return jsonify({"msg": "User added successfully"}), 200
