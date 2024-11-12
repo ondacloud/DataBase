@@ -6,13 +6,13 @@ import redis
 app = Flask(__name__)
 
 # DB Setting
-DB_HOST = "<HOST>"
-DB_PORT = "<PORT>" # Default Port Number : 6379
+REDIS_HOST = "<HOST>"
+REDIS_PORT = "<PORT>" # Default Port Number : 6379
 
 def db_connection():
-    global DB_HOST, DB_PORT
+    global REDIS_HOST, REDIS_PORT
     
-    client = redis.Redis(host=DB_HOST, port=DB_PORT, db=0)
+    client = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0)
     return client
 
 @app.route('/user', methods=["POST"])
@@ -21,6 +21,7 @@ def add_user():
         data = request.json
         name = data.get("name")
         age = data.get("age")
+        country = data.get("country")
 
         client = db_connection()
 
@@ -47,8 +48,8 @@ def get_user():
         logging.error(e)
         abort(500)
 
-@app.route('/healthz', methods=['GET'])
-def get_healthz():
+@app.route('/healthcheck', methods=['GET'])
+def get_healthcheck():
   try:
     ret = {'status': 'ok'}
 
@@ -58,4 +59,4 @@ def get_healthz():
     abort(500)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080, debug=True)

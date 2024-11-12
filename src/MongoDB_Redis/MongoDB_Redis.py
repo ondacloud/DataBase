@@ -46,8 +46,9 @@ def add_user():
     data = request.json
     name = data.get("name")
     age = data.get("age")
+    country = data.get("country")
       
-    body = {"name": name, "age": age}
+    body = {"name": name, "age": age, "country": country}
 
     mongodb_client = mongodb_connection()
     db = mongodb_client["demo"]
@@ -87,8 +88,8 @@ def get_user():
         logging.error(e)
         abort(500)
 
-@app.route('/healthz', methods=['GET'])
-def get_healthz():
+@app.route('/healthcheck', methods=['GET'])
+def get_healthcheck():
   try:
     ret = {'status': 'ok'}
 
@@ -98,4 +99,4 @@ def get_healthz():
     abort(500)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080, debug=True)
