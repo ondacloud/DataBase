@@ -1,5 +1,5 @@
 ### DataBase
-- [MySQL](https://github.com/architecture-studys/Linux/blob/main/DataBase/MySQL.md)
-- [PostgreSQL](https://github.com/architecture-studys/Linux/blob/main/DataBase/PostgreSQL.md)
-- [MongoDB](https://github.com/architecture-studys/Linux/blob/main/DataBase/MongoDB.md)
-- [Redis](https://github.com/architecture-studys/Linux/blob/main/DataBase/Redis.md)
+- [MySQL](https://github.com/ondacloud/DataBase/blob/main/MySQL.md)
+- [PostgreSQL](https://github.com/ondacloud/DataBase/blob/main/PostgreSQL.md)
+- [MongoDB](https://github.com/ondacloud/DataBase/blob/main/MongoDB.md)
+- [Redis](https://github.com/ondacloud/DataBase/blob/main/Redis.md)
